@@ -1,13 +1,16 @@
 <?php
-session_start();
 require("header.php");
 ?>
-
-	<head>
-		<title>PM - Gallery</title>
-                    <link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-     <section id="four" class="wrapper style1 special">
+<html>
+    
+    <head>
+        <title>PM - Gallery</title>
+        <link rel="stylesheet" href="assets/css/main.css" />
+    </head>
+    
+    <body>
+     
+        <section id="four" class="wrapper style1 special">
                 <div class="inner">
                     <header class="major narrow">
                         <h2>Gallery</h2>
@@ -27,8 +30,7 @@ require("header.php");
                                     foreach($resultset as $key=>$value){
                                         
                                     ?>
-                    <form action="photogrid.php" method="POST">                
-                        <section id="one" class="wrapper style2 special">
+                    <form action="photogrid.php" method="POST">
 				<div class="inner">
 					<article class="feature left">
 						<span class="image"><img src="data:image/jpg;base64,<?php echo base64_encode($resultset[$key]["album_thumb"]); ?>" alt="" /></span>
@@ -39,7 +41,7 @@ require("header.php");
 							<h1><?php echo $resultset[$key]["album_desc"]; ?>.</h1>
 							<ul class="actions">
 								<li>
-                                                                    <button type="submit" class="button small special">More</a>
+                                                                    <button type="submit" class="button small special">More</button>
                                                                     <input type="hidden" id="selected" name="selected" value="<?php echo $resultset[$key]["album_id"]?>"/>
 								</li>
 							</ul>
@@ -48,12 +50,15 @@ require("header.php");
 					</article>
 					
 				</div>
-			</section>
                     </form>
 
                         <?php } } ?>
                     </div>
             </section>
         <?php  require("footer.php");?>
+
+    </body>
+    
+</html>
 
 

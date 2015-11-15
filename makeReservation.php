@@ -1,49 +1,66 @@
-<?php
-session_start();
-require("base.php");
-?>
 <html>
-	<head>
-		<title>PM - Make Reservation</title>
-	
-	</head>
-	<body class="landing">
-                <div class='container'>
-                    <header class='center'>
-                        <h4><a href="index.php">PM Banquet</a></h4>
-                        <p>Enter Booking Details</p>
-                    </header>
-                    <form action="makeReservation.php" method="post" class="col s6">
-                        <div class="row">
-                            <div class="row">
-                                <div class="input-field col s6">
-                                    <span>Select Date</span>
-                                    <input type="date" name="dt" class="datepicker">                                
-                                    <button type="submit" name="subm" class="waves-effect waves-light btn">Submit</button>
-                                </div>
-                            </div>
-                          
+    <head>
+        <title>PM - Make Reservation</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+        <link rel="stylesheet" href="assets/material/css/materialize.min.css">
+        <link rel="stylesheet" href="assets/material/css/jquery-ui.min.css">
+        <link rel="stylesheet" href="assets/material/css/font-awesome.min.css">
+        <link rel="stylesheet" href="assets/material/css/style.css">
+    </head>
+
+    <body class="landing">
+        <nav>
+            <div class="nav-wrapper">
+
+                <ul class="left hide-on-med-and-down">
+                    <li><a href="index.php">PM Banquet</a></li>
+                </ul>
+      
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="index.php"><i class="small material-icons left">home</i>Home</a></li>
+                    <li><a href="foodService.php">Food</a></li>
+                    <li><a href="event.php">Allied Service</a></li>
+                    <li><a href="contact.php">Help</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class='container'>
+            <header class='center'>
+                <h4><a href="index.php">PM Banquet</a></h4>
+                <p>Enter Booking Details</p>
+            </header>
+                    
+            <form action="makeReservation.php" method="post" class="col s6">
+                <div class="row">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <span>Select Date</span>
+                            <input type="date" name="dt" >                                
+                            <button type="submit" name="subm" class="waves-effect waves-light btn">Submit</button>
                         </div>
-                    </form>
-                                <?php
-                                if(isset($_POST['subm']))
-        {
+                    </div>
+                          
+                </div>
+            </form>
+            <?php
+            if(isset($_POST['subm']))
+            {
         
-        $dt = $_POST["dt"];
-        $conn = mysql_connect("localhost", "root", "");
-        mysql_select_db("PM_Banq",$conn);
-        $qry="SELECT * FROM booking_status WHERE date  = '$dt'  AND status LIKE 'U' AND last_modified <= now() - INTERVAL 1 DAY" ;
+            $dt = $_POST["dt"];
+            $conn = mysql_connect("localhost", "root", "");
+            mysql_select_db("PM_Banq",$conn);
+            $qry="SELECT * FROM booking_status WHERE date  = '$dt'  AND status LIKE 'U' AND last_modified <= now() - INTERVAL 1 DAY" ;
         
-        $result = mysql_query($qry,$conn);
-        while($row=  mysql_fetch_assoc($result)) {
+            $result = mysql_query($qry,$conn);
+            while($row=  mysql_fetch_assoc($result)) {
             $resultset[] = $row;
             
-        }
-        if(!empty($resultset))
-                    {
-            
-        ?>
-       <form method='post' action='dbReservation.php' onsubmit="if(document.getElementById('human').checked) { return true; } else { alert('Hello Robot..!!'); return false; }">
+            }
+            if(!empty($resultset))
+                    { ?>
+                    <form method='post' action='DBHandler.php' onsubmit="if(document.getElementById('human').checked) { return true; } else { alert('Hello Robot..!!'); return false; }">
                         <div class="row">
                             <div class="row">
                                 <div class="input-field col s6">
@@ -137,10 +154,16 @@ require("base.php");
                     {
                         echo"Unavailable..!! Select Another Date";
                     }
+                    
+                }?>
+        </div>
         
-        }?>
-                </div>
+        <script type="text/javascript" src="assets/material/js/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/material/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="assets/material/js/materialize.min.js"></script>
+        <script type="text/javascript" src="assets/material/js/ajax.js"></script>
+        <script type="text/javascript" src="assets/material/js/style.js"></script>
+        <script type="text/javascript" src="assets/material/js/custom.js"></script>
      		
-            
-	</body>
+    </body>
 </html>

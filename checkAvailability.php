@@ -1,4 +1,9 @@
+<?php
+require("header.php");
+
+?>
 <html>
+    
 	<head>
 		<title>PM Banquet - Check Availability </title>
 		
@@ -7,17 +12,6 @@
 		
 	</head>
 	<body class="landing">
-            <header id="header" class="skel-layers-fixed">
-				<h1><a href="index.php">PM Banquet</a></h1>
-                                    <a href="index.php">Home</a>
-                                    <a href="#">Food Service</a>
-                                    <a href="gallery.php">Gallery</a>
-                                    <a href="#">Allied Service</a>
-                                    <a href="login.php" class="button small"><?php if(isset($_SESSION["username"])) echo "Logout"; else echo "Admin";?> </a>
-			</header>
-            
-            
-            
             <section id="four" class="wrapper style2 special">
                 <div class="inner">
                     
@@ -26,7 +20,6 @@
                         <p>Select A Date</p>
                     </header>
 					
-                    
                     <form method="POST" onsubmit="if(document.getElementById('human').checked) { return true; } else { alert('Hello Robot..!!'); return false; }"
 						
                         <div class="container 75%">
@@ -79,8 +72,7 @@
         }
                                         
       ?>
-</div>
-			
+		
             </section>
             <section id="one" class="wrapper style1">
 				<div class="inner">
@@ -100,42 +92,7 @@
 				</div>
 			</section>
 
-		<!-- Footer -->
-			
-                <footer id="footer">
-				
-                    <div class="inner">
-					
-                        <ul class="icons">
-						
-                            <li><a href="#" class="icon fa-facebook">
-							
-                                    <span class="label">Facebook</span>
-						
-                                </a>
-                            </li>
-						
-                            <li><a href="#" class="icon fa-twitter">
-							
-                                    <span class="label">Twitter</span>
-						
-                                </a>
-                            </li>
-						
-                            <li><a href="#" class="icon fa-instagram">
-							
-                                    <span class="label">Instagram</span>
-						
-                                </a>
-                            </li>
-						
-					
-                        </ul>
-					
-				
-                    </div>
-			
-                </footer>
+                <?php require('footer.php');?>
 
 		
                 <script src="js/formindex.js"></script>

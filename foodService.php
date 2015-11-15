@@ -1,40 +1,13 @@
 <?php
-session_start();
+require("header.php");
 ?>
 <html>
 	<head>
-		<title>PM - Food Services </title>
-		
-                <link rel="stylesheet" href="assets/css/main.css" />
-		
-	</head>
+            <title>PM - Food Services </title>
+            <link rel="stylesheet" href="assets/css/main.css" />
+        </head>
 	<body class="landing">
-            <header id="header" class="skel-layers-fixed">
-                <h1><a href="index.php">PM Banquet</a></h1>
-                    <a href="index.php">Home</a>
-                    <a href="foodService.php">Food Service</a>
-                    <a href="gallery.php">Gallery</a>
-                    <a href="#">Allied Service</a>
-                    <a href="contact.php">Contact Us</a>
-
-                    
-            </header>
-            <?php if(isset($_SESSION["username"]))
-                    {                                        
-                                        
-                        echo "<section id='three' class='wrapper style3 special'>
-				<div class='inner'>
-					
-					<ul class='actions'>
-						<li><a href='addFoodItem.php' class='button small special'>Add Food Item</a></li>
-                                                <li><a href='removeFoodItem.php' class='button small special'>Remove Food Item</a></li>
-                                                <li><a href='updateFoodItem.php' class='button small special'>Update Food Item</a></li>
-					</ul>
-				</div>
-			</section>"; 
-                        
-                    }
-                    ?>
+      
             <section id="four" class="wrapper style1 special">
                 <div class="inner">
                     <header class="major narrow">
@@ -103,49 +76,7 @@ session_start();
 
                 </div>
             </section>
-            
-                            
-                        
-
-        
-            <footer id="footer">
-				
-                <div class="inner">
-					
-                    <ul class="icons">
-						
-                        <li><a href="#" class="icon fa-facebook">
-							
-                        <span class="label">Facebook</span>
-						
-                        </a>
-                        </li>
-						
-                        <li><a href="#" class="icon fa-twitter">
-							
-                        <span class="label">Twitter</span>
-						
-                        </a>
-                        </li>
-						
-                        <li><a href="#" class="icon fa-instagram">
-							
-                        <span class="label">Instagram</span>
-						
-                        </a>
-                        </li>
-						
-					
-                    </ul>
-					
-				
-                </div>
-			
-            </footer>
-
-		
-           
-
+            <?php require(footer.php); ?>
 	</body>
 </html>
 

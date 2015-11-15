@@ -1,5 +1,5 @@
 <?php
-session_start();
+require("header.php");
 ?>
 <html>
 	<head>
@@ -9,8 +9,6 @@ session_start();
 		
 	</head>
 	<body class="landing">
-            <?php require("header.php");?>
-            
             <section id="one" class="wrapper style1">
 				<div class="inner">
 					<article class="feature left">
@@ -38,7 +36,7 @@ session_start();
                     </header>
 					
                     
-                    <form method="POST" onsubmit="if(document.getElementById('human').checked) { return true; } else { alert('Hello Robot..!!'); return false; }">
+                    <form method="POST"  action="DBHandler.php" onsubmit="if(document.getElementById('human').checked) { return true; } else { alert('Hello Robot..!!'); return false; }">
 						
                         <div class="container 75%">
                             <div class="row uniform 50%">
@@ -70,7 +68,7 @@ session_start();
                                             <option value="website">Website</option>
                                                                                                 
                                             <option value="food">Food Service</option>
-                              0                                                                  
+                                                                                                
                                             <option value="general">Other</option>
 											
                                         </select>
@@ -108,7 +106,7 @@ session_start();
 								
                                 <div class="12u">
 									
-                                  <textarea name="message" placeholder="Message" rows="4" required autocomplete="off"></textarea>
+                                  <textarea name="message" placeholder="Message" rows="4" required ></textarea>
 								
                                 </div>
                                 
@@ -123,95 +121,24 @@ session_start();
                             </div>
                         
 						
-                          <ul class="actions">
+                            <ul class="actions">
 							
-                              <li><input type="submit" class="special"  value="Submit"  name="subm"/></li>
+                                <li><input type="submit" class="special"  value="Submit"  name="feed"/></li>
 							
-                              <li><input type="reset" class="alt" value="Reset" /></li>
+                                <li><input type="reset" class="alt" value="Reset" /></li>
 						
-                        </ul>
-					
-                </form>
-                    </div>
-                                    
-                <?php
-                                   
-                if(isset($_POST['subm']))
-        
-                {
+                            </ul>
+                        </div>
                     
-                    
-            
-                    $name = $_POST['name'];
-                    $email= $_POST['email'];
-                    $category = $_POST['category'];
-                    $prior = $_POST['priority'];
-                    $msg = $_POST['message'];
-                    
-            
-            
-                    $conn = mysql_connect("localhost", "root", "");
-                    mysql_select_db("PM_Banq",$conn);
-                    $qry ="INSERT INTO `feedback_master` (`feedback_id`, `name`, `email`, `category`, `prior`, `message`, `date`) VALUES (NULL, '$name', '$email', '$category', '$prior', '$msg', CURRENT_DATE())"; 
-                   // $qry= "INSERT INTO feedback_master(name,email,category,prior,message) values ('$name','$email','$category','$prior',$msg',CURRENT_DATE)";
-                    $result=  mysql_query($qry,$conn);
-                   if($result)
-                    {
-                        echo"Thank You ";
+                    </form>
                 
-                    }
-                    else
-                    {
-                        echo"Please Try Again";
-                    }
-           
-                }
-
-                ?>
-				
                 </div>
 			
             </section>
+            
+            <?php require("footer.php"); ?>
 
-		<!-- Footer -->
-			
-                <footer id="footer">
-				
-                    <div class="inner">
-					
-                        <ul class="icons">
-						
-                            <li><a href="#" class="icon fa-facebook">
-							
-                                    <span class="label">Facebook</span>
-						
-                                </a>
-                            </li>
-						
-                            <li><a href="#" class="icon fa-twitter">
-							
-                                    <span class="label">Twitter</span>
-						
-                                </a>
-                            </li>
-						
-                            <li><a href="#" class="icon fa-instagram">
-							
-                                    <span class="label">Instagram</span>
-						
-                                </a>
-                            </li>
-						
-					
-                        </ul>
-					
-				
-                    </div>
-			
-                </footer>
-
-		
-                <script src="js/formindex.js"></script>
+            <script src="js/formindex.js"></script>
 
 	</body>
 </html>
