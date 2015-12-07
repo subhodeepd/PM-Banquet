@@ -1,12 +1,19 @@
-<?php
-require("header.php");
-?>
 <html>
 	<head>
             <title>PM - Food Services </title>
             <link rel="stylesheet" href="assets/css/main.css" />
         </head>
 	<body class="landing">
+            <header id="header" class="skel-layers-fixed">
+                <h1><a href="index.php">PM Banquet</a></h1>
+                <a href="index.php">Home</a>
+                <a href="viewBooking.php" class="button small alternate">Order Food</a>
+                <a href="gallery.php">Gallery</a>
+                <a href="#">Allied Service</a>
+                <a href="contact.php">Contact Us</a
+                                        
+            </header>
+            </header>
       
             <section id="four" class="wrapper style1 special">
                 <div class="inner">
@@ -76,7 +83,7 @@ require("header.php");
 
                 </div>
             </section>
-            <?php require(footer.php); ?>
+            <?php require("footer.php"); ?>
 	</body>
 </html>
 
