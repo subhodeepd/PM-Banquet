@@ -10,26 +10,22 @@ require("header.php");
 	</head>
 	<body class="landing">
             <section id="one" class="wrapper style1">
-				<div class="inner">
-					<article class="feature left">
-						<span class="image"><img src="images/pic01.jpg" alt="" /></span>
-						<div class="content">
-							<h2>PM Banquet</h2>
-							<h1>Sed egestas, ante et vulputate volutpat, t.</h1>
-							<ul class="actions">
-								<li>
-									<a href="#" class="button alt">More</a>
-								</li>
-							</ul>
-						</div>
-					</article>
-					
-				</div>
-			</section>
-            
-            <section id="four" class="wrapper style2 special">
-                <div class="inner">
+		<div class="inner">
+                    <article class="feature left">
+			<span class="image"><img src="images/pic01.jpg" alt="" /></span>
+                        <div class="content">
+                            <h2>PM Banquet</h2>
+                            <h1>Sed egestas, ante et vulputate volutpat, t.</h1>
+                            <ul class="actions">
+                                <li>
+                                    <a href="#" class="button alt">More</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
                     
+                    <--FeedBack Form-->
                     <header class="major narrow">
                         <h2>Give Us Feedback</h2>
                         <p>Let us know how we can improve.</p>
