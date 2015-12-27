@@ -10,74 +10,42 @@ $_SESSION['msg']= "Welcome to PM Banquet.! Good day .!";}
 ?>
 <html>
     <head>
-        <script type="text/javascript">
-            $(document).ready(function(){
-    $('.collapsible').collapsible({
-      accordion : true // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-    });
-  });
-  </script>
+        <title>PM- Admin Panel</title>
     </head>
     <body class="landing">
         <div class="container">
-            <a class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
-            <a class="waves-effect waves-light btn modal-trigger" href="#modal3">Modal Bottom Sheet Style</a>
- 
-     
-        <div id="modal3" class="modal bottom-sheet">
-          <div class="modal-content">
-            <h4>Modal Header</h4>
-            <ul class="collection">
-              <li class="collection-item avatar">
-                <img src="images/yuna.jpg" alt="" class="circle">
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li>
-              <li class="collection-item avatar">
-                <i class="material-icons circle">folder</i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li>
-              <li class="collection-item avatar">
-                <i class="material-icons circle green">assessment</i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li>
-              <li class="collection-item avatar">
-                <i class="material-icons circle red">play_arrow</i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-            <ul class="collapsible" data-collapsible="accordion">
-    <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-  </ul>
-      </div>
+            <h4>Recent Bookings</h4>
+            <?php
+             $conn = mysql_connect("localhost", "root", "");
+                mysql_select_db("PM_Banq",$conn);
+                $qry="SELECT * FROM booking_master WHERE status LIKE 'PENDING' ORDER BY booking_time DESC LIMIT 3";
+        
+                $result = mysql_query($qry,$conn);
+                while($row=  mysql_fetch_assoc($result)) {
+                        $resultset[] = $row;
+                        
+                    }
+                    if (!empty($resultset)) {
+                        foreach($resultset as $key=>$value){
+                    ?>
+                    
+                    <div class="col s12 m7">
+                        
+                        <div class="card medium">
+                            <div class="container">
+                                <span class="card-title activator grey-text text-darken-4"></span>
+                                <h3><?php echo $resultset[$key]["date"];   echo $resultset[$key]["sessions"];  ?></h3>
+                                <a id="flow-toggle" class="btn waves-effect waves-light large"><?php echo $resultset[$key]["event_type"]; ?></a>
+                                <h5>Guests: <?php echo $resultset[$key]["nop"]; ?></h4>
+                                <blockquote>
+                                    <p class="flow-text"><?php echo $resultset[$key]["name"];?></p>
+                                    <p class="flow-text">Contact No: <?php echo $resultset[$key]["phone"]; ?></p>
+                                </blockquote>
+
+                            </div>
+                       
+                        </div>
+       <?php     }}?>
         
         
             

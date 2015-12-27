@@ -1,5 +1,6 @@
 <?php
 session_start();
+require ('header.php');
 $selected=$_POST["selected"];
 ?>
 <html>
@@ -10,28 +11,20 @@ $selected=$_POST["selected"];
 		
                 <link rel="stylesheet" href="assets/css/main.css" />
 		
-	</head>
+        </head>
         <body class="landing">
-            <header id="header" class="skel-layers-fixed">
-                <h1><a href="index.php">PM Banquet</a></h1>
-                    <a href="index.php">Home</a>
-                    <a href="#">Food Service</a>
-                    <a href="gallery.php">Gallery</a>
-                    <a href="#">Allied Service</a>
-                    <a href="feedback.php">Contact Us</a>
-     
-            </header>
+        
             <section id="two" class="wrapper special">
 				<div class="inner">
 					<header class="major narrow">
-						<h2><?php echo "Selected ID=".$selected; ?></h2>
-						<p>Album Desc</p>
+						<h2>Album Photos</h2>
+
 					</header>
 					<div class="image-grid">
                                             <?php
                                             $conn = mysql_connect("localhost", "root", "");
                                             mysql_select_db("PM_Banq",$conn);
-                                            $qry="SELECT * FROM gallery_master ORDER BY date DESC";
+                                            $qry="SELECT * FROM image_master WHERE album_id= $selected";
                                             $result = mysql_query($qry,$conn);
                                             while($row=  mysql_fetch_assoc($result)) {
                                             $resultset[] = $row;
@@ -41,7 +34,7 @@ $selected=$_POST["selected"];
                                             foreach($resultset as $key=>$value){
                                         
                                             ?>
-						<a href="#" class="image"><img src="data:image/jpg;base64,<?php echo base64_encode($resultset[$key]["album_thumb"]); ?>" alt="" /></a>
+						<a href="#" class="image"><img src="data:image/jpg;base64,<?php echo base64_encode($resultset[$key]["image"]); ?>" alt="" /></a>
 						
                                             <?php } } ?>
 					</div>

@@ -8,7 +8,7 @@ require("navbar.php");
 ?>
 <html>
     <head>
-        <title>PM - Delete Food Item </title>	
+        <title>PM - Booking Management </title>	
     </head>
     <body class="landing">
         <div class="container">

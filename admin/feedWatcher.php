@@ -38,9 +38,11 @@ require("navbar.php");
                                         
                                     ?>
                     
-                        <div class="col s12 m5">
+                        <div class="col s12 m5 ">
                             <div class="card-panel teal">
-                                <h4><?php echo $resultset[$key]["category"]; ?></h4>
+                                <h4 class="white-text"><?php echo $resultset[$key]["category"]; ?></h4>
+                                <span class="white-text"><?php echo $resultset[$key]["name"]; ?></span></br>
+                                <span class="white-text"><?php echo $resultset[$key]["email"]; ?></span>
                                 <span class="white-text"><?php echo $resultset[$key]["message"]; ?></span>
                                 
                             </div>
@@ -95,7 +97,9 @@ require("navbar.php");
                     
                         <div class="col s12 m5">
                             <div class="card-panel teal">
-                                <h4><?php echo $highresultset[$key]["category"]; ?></h4>
+                                <h4 class="white-text"><?php echo $highresultset[$key]["category"]; ?></h4>
+                                <span class="white-text"><?php echo $highresultset[$key]["name"]; ?></span></br>
+                                <span class="white-text"><?php echo $highresultset[$key]["email"]; ?></span>
                                 <span class="white-text"><?php echo $highresultset[$key]["message"]; ?></span>
                                 
                             </div>

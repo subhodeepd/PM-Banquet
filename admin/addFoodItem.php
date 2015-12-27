@@ -34,7 +34,7 @@ require("navbar.php");
                      </div>
                     <div class="row">
                         <div class="input-field col s6">
-                            <select name="Category" id="category">		
+                            <select name="Category" id="Category">		
                                             <?php
                                             $conn = mysql_connect("localhost", "root", "");
                                             mysql_select_db("PM_Banq",$conn);
@@ -49,7 +49,7 @@ require("navbar.php");
                             </select>					
                         </div>
                         <div class="input-field col s6">
-                            <select name="Availability" id="availability">
+                            <select name="Availability" id="Availability">
                                 <option value="available">Available</option>
                                 <option value="unavailable">Unavailable</option>
                             </select>

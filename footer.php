@@ -1,35 +1,28 @@
 <footer id="footer">
-				
-                <div class="inner">
-					
-                    <ul class="icons">
-						
-                        <li><a href="#" class="icon fa-facebook">
-							
-                        <span class="label">Facebook</span>
-						
-                        </a>
-                        </li>
-						
-                        <li><a href="#" class="icon fa-twitter">
-							
-                        <span class="label">Twitter</span>
-						
-                        </a>
-                        </li>
-						
-                        <li><a href="#" class="icon fa-instagram">
-							
-                        <span class="label">Instagram</span>
-						
-                        </a>
-                        </li>
-						
-					
-                    </ul>
-					
-				
-                </div>
-			
-            </footer>
+    <div class="inner">
+        <ul class="icons">
+            <li><a href="#" class="icon fa-facebook">
+                    <span class="label">Facebook</span>
+                </a></li>
+            <li><a href="#" class="icon fa-twitter">
+                    <span class="label">Twitter</span>
+                </a></li>
+            <li><a href="#" class="icon fa-instagram">
+                    <span class="label">Instagram</span>
+                </a></li>
+            <li><a href="#" class="icon fa-linkedin">
+                    <span class="label">LinkedIn</span>
+                </a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; PM BANQUET</li>
+            <li>Design: <a href="http://templated.co">TEMPLATED</a>.</li>
+        </ul>
+    </div>
+</footer>
+
+
+</div>
+
+</footer>
 

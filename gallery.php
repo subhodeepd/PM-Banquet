@@ -20,7 +20,7 @@ require("header.php");
                         <?php
                                     $conn = mysql_connect("localhost", "root", "");
                                     mysql_select_db("PM_Banq",$conn);
-                                    $qry="SELECT * FROM gallery_master ORDER BY date DESC";
+                                    $qry="SELECT * FROM album_master ORDER BY date DESC LIMIT 10";
                                     $result = mysql_query($qry,$conn);
                                     while($row=  mysql_fetch_assoc($result)) {
                                         $resultset[] = $row;

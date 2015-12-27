@@ -27,16 +27,16 @@ require("navbar.php");
                       
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <select name="Category" id="category" >		
+                                    <select name="Album_id" id="album_name" >		
                                             <?php
                                             $conn = mysql_connect("localhost", "root", "");
                                             mysql_select_db("PM_Banq",$conn);
-                                            $query = mysql_query("SELECT * FROM gallery_master");
+                                            $query = mysql_query("SELECT * FROM album_master");
                                             while($run = mysql_fetch_array($query)){
                                                 $id= $run['album_id'];
                                                 $name = $run['album_name'];
                   
-                                                echo "<option value='$name'>$name</option>";
+                                                echo "<option value='$id'>$name</option>";
                                             }?>
 						
                                     </select>
@@ -52,6 +52,7 @@ require("navbar.php");
                                     </div>
                                 </div>                            
                                 <div class="input-field col s6">
+                                    
                                     <button type="submit" name="addPhoto" class="waves-effect waves-light btn-large">Submit</button>
                           
                                 </div>

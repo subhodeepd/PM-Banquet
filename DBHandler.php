@@ -1,4 +1,4 @@
-<?php
+3<?php
 session_start();
 $conn = mysql_connect("localhost", "root", "");
 mysql_select_db("PM_Banq",$conn);
@@ -14,11 +14,10 @@ if(isset($_POST['book'])){
     $address = $_POST['address'];
     $event = $_POST['category'];
     $nop = $_POST['nop'];
-    $food = json_encode($_POST['food']);
     $session = json_encode($_POST['session']);
 
     
-    $qry ="INSERT INTO `booking_master` (`booking_id`,`title`, `name`,`address`, `phone`,`email`,`nop`,`date`,`sessions`,`food_type`,`event_type`) VALUES (NULL, '$title', '$name', '$address', '$phone','$email','$nop','$date','$session','$food','$event')";
+    $qry ="INSERT INTO `booking_master` (`booking_id`,`title`, `name`,`address`, `phone`,`email`,`nop`,`date`,`sessions`,`event_type`) VALUES (NULL, '$title', '$name', '$address', '$phone','$email','$nop','$date','$session','$event')";
 
 
     $result = mysql_query($qry,$conn);
@@ -27,6 +26,10 @@ if(isset($_POST['book'])){
         $id = mysql_insert_id();
             
     }
+ 
+    
+    
+    
     else
     {
         echo"Please Try Again";
@@ -37,7 +40,8 @@ if(isset($_POST['book'])){
         $result = mysql_query($query,$conn);
         if($result)
         {
-            echo $id; //`last_modified` = CURRENT_TIMESTAMP
+            
+            header('Location:viewBooking.php?booking_id='.$id);
             
         }
         else
@@ -61,12 +65,11 @@ if(isset($_POST['feed'])){
     $result=  mysql_query($qry,$conn);
     if($result)
     {
-        echo"Thank You for your feedback";
-        
+        header('Location:contact.php');
     }
     else
     {
-            echo"Please Try Again";
+        header('Location:contact.php');
             
     }
         

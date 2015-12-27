@@ -10,8 +10,9 @@ if(isset($_POST['addAlbum']))
         $date= $_POST['date'];
         $desc= $_POST['desc'];
         $imageData = mysql_real_escape_string(file_get_contents($_FILES["image"]["tmp_name"]));
+                    
+        $qry ="INSERT INTO `album_master` (`album_id`, `album_name`,`album_desc`, `date`,`album_thumb`) VALUES (NULL, '$name', '$desc', '$date','$imageData')"; 
             
-        $qry= "insert into gallery_master(album_name,date,album_desc,album_thumb) values ('$name','$date','$desc','$imageData')";
         $result=  mysql_query($qry,$conn);
         if($result)
         {
@@ -33,6 +34,8 @@ if(isset($_POST['addAlbum']))
         
 if(isset($_POST['addPhoto']))
         {
+    
+            $id = $_POST['Album_id'];
            
             $imageData = mysql_real_escape_string(file_get_contents($_FILES["image"]["tmp_name"]));
             $imageType = mysql_real_escape_string($_FILES["image"]["type"]);
@@ -41,7 +44,7 @@ if(isset($_POST['addPhoto']))
             
             if(substr($imageType, 0, 5) == "image" )
             {
-                $qry="INSERT INTO images VALUES ('0','$id','$imageData')";
+                $qry="INSERT INTO image_master VALUES ('NULL','$id','$imageData')";
                 $result=  mysql_query($qry,$conn);
             
                 if($result)
@@ -76,7 +79,7 @@ if(isset($_POST['addFood']))
                     $category = $_POST['Category'];
                     $status = $_POST['Availability'];
                     
-                    $qry ="INSERT INTO `food_master` (`food_id`, `food_name`,`food_price`, `food_desc`, `category`,`available`) VALUES (NULL, '$name', '$price', '$desc', '$category','$status')"; 
+                    $qry ="INSERT INTO `food_master` (`food_id`, `food_name`,`food_price`, `food_desc`, `category`,`availability`) VALUES (NULL, '$name', '$price', '$desc', '$category','$status')"; 
                    
                     $result=  mysql_query($qry,$conn);
                     $id = mysql_insert_id();
@@ -104,7 +107,7 @@ if(isset($_POST['updateFood'])){
     $desc= $_POST['fdesc'];
     $status= $_POST['fstatus'];
 
-    $query ="UPDATE `pm_banq`.`food_master` SET `food_name`='$name',`food_desc`='$desc',`available`='$status' WHERE `food_master`.`food_id` = '$id'";
+    $query ="UPDATE `pm_banq`.`food_master` SET `food_name`='$name',`food_desc`='$desc',`availability`='$status' WHERE `food_master`.`food_id` = '$id'";
     $rslt = mysql_query($query,$conn);
     if($rslt)
     {
@@ -120,4 +123,99 @@ if(isset($_POST['updateFood'])){
         header('Location:updateFoodItem.php');
     }
        
+}
+
+
+if(isset($_POST['delFood'])){
+    
+   
+    $name= $_POST['fname'];
+
+    $query ="DELETE FROM `pm_banq`.`food_master` WHERE `food_master`.`food_name` = '$name'";
+    $rslt = mysql_query($query,$conn);
+    if($rslt)
+    {
+        $msg= $name." Details deleted..!";
+        $_SESSION['msg'] = $msg;
+        header('Location:removeFoodItem.php');
+                
+    }
+    else
+    {
+        $msg= "Something went wrong..! Please Try Again...";
+        $_SESSION['msg'] = $msg;
+        header('Location:removeFoodItem.php');
+    }
+}
+
+
+if(isset($_POST['addService']))
+    {
+        $name = $_POST['name'];
+        $desc= $_POST['desc'];
+        $imageData = mysql_real_escape_string(file_get_contents($_FILES["image"]["tmp_name"]));
+                    
+        $qry ="INSERT INTO `allied_master` (`service_id`, `service_name`,`service_desc`,`service_thumb`) VALUES (NULL, '$name', '$desc','$imageData')"; 
+            
+        $result=  mysql_query($qry,$conn);
+        if($result)
+        {
+            $msg= " Service Added..!";
+            $_SESSION['msg'] = $msg;
+            header('Location:addService.php');
+                
+        }
+        else
+        {
+            $msg= "Something went wrong..! Please Try Again...";
+            $_SESSION['msg'] = $msg;
+            header('Location:addService.php');
+        }
+           
+    }
+    
+    if(isset($_POST['delService'])){
+    
+   
+    $name= $_POST['service'];
+
+    $query ="DELETE FROM `pm_banq`.`allied_master` WHERE `allied_master`.`service_name` = '$name'";
+    $rslt = mysql_query($query,$conn);
+    if($rslt)
+    {
+        $msg= $name." Details deleted..!";
+        $_SESSION['msg'] = $msg;
+        header('Location:deleteService.php');
+                
+    }
+    else
+    {
+        $msg= "Something went wrong..! Please Try Again...";
+        $_SESSION['msg'] = $msg;
+        header('Location:deleteService.php');
+    }
+}
+
+if(isset($_POST['delAlbum'])){
+    
+   
+    $id= $_POST['Album_id'];
+
+    $query ="DELETE FROM `pm_banq`.`image_master` WHERE `image_master`.`album_id` = '$id'";
+    $qry ="DELETE FROM `pm_banq`.`album_master` WHERE `album_master`.`album_id` = '$id'";
+    $result = mysql_query($query,$conn);
+    $rslt=  mysql_query($qry,$conn);
+    if($rslt)
+    {
+        $msg= $name."Album deleted..!";
+        $_SESSION['msg'] = $msg;
+        header('Location:delAlbum.php');
+                
+    }
+    else
+    {
+        $msg= "Something went wrong..! Please Try Again...";
+        $_SESSION['msg'] = $msg;
+        header('Location:delAlbum.php');
+    }
 }

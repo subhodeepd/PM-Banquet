@@ -8,14 +8,15 @@
                 <h1><a href="index.php">PM Banquet</a></h1>
                 <a href="index.php">Home</a>
                 <a href="viewBooking.php" class="button small alternate">Order Food</a>
-                <a href="gallery.php">Gallery</a>
-                <a href="#">Allied Service</a>
+                <a href="gallery.php">Gall
+                    ery</a>
+                <a href="alliedService.php">Allied Service</a>
                 <a href="contact.php">Contact Us</a
                                         
             </header>
             </header>
       
-            <section id="four" class="wrapper style1 special">
+            <section id="four" class="wrapper style special">
                 <div class="inner">
                     <header class="major narrow">
                         <h2>Food Menu</h2>
@@ -38,7 +39,7 @@
                                     
                                         
                          ?>
-                        <div class="inner style2">
+                        <div class="inner special">
                       
                             <h3><?php echo $resultset[$key]["category"]; ?></h3>
                             <div class="table-wrapper">
@@ -47,7 +48,6 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Description</th>
-                                            <th>Price</th>
 					</tr>
                                     </thead>
                                     <tbody>
@@ -67,7 +67,6 @@
                                         <tr>
                                             <td><?php echo $resultst[$key]["food_name"]; ?></td>
                                             <td><?php echo $resultst[$key]["food_desc"]; ?></td>
-                                            <td><?php echo $resultst[$key]["food_price"]; ?></td>
 					</tr>
                                         
                                         <?php 

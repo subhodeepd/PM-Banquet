@@ -15,17 +15,14 @@ require("header.php");
 			<span class="image"><img src="images/pic01.jpg" alt="" /></span>
                         <div class="content">
                             <h2>PM Banquet</h2>
-                            <h1>Sed egestas, ante et vulputate volutpat, t.</h1>
-                            <ul class="actions">
-                                <li>
-                                    <a href="#" class="button alt">More</a>
-                                </li>
-                            </ul>
+                            <h1>14,Ashirwad Shopping Centre</h1>
+                            <h1>Opp.Navneet park</h1>
+                            <h1>Harni-Warasiya ring road,</h1>
+                            <h1>Vadodara. ph- 0265-2495578</h1>
                         </div>
                     </article>
 
                     
-                    <--FeedBack Form-->
                     <header class="major narrow">
                         <h2>Give Us Feedback</h2>
                         <p>Let us know how we can improve.</p>
@@ -55,17 +52,17 @@ require("header.php");
 											
                                         <select name="category" id="category">		
 												
-                                            <option value="booking">Booking</option>
+                                            <option value="Booking">Booking</option>
 												
-                                            <option value="service">Service</option>
+                                            <option value="Banquet Service">Banquet Service</option>
 												
-                                            <option value="allied_service">Allied Servie</option>
+                                            <option value="Allied Service">Allied Servie</option>
                                                                                                 
-                                            <option value="website">Website</option>
+                                            <option value="Website">Website</option>
                                                                                                 
-                                            <option value="food">Food Service</option>
+                                            <option value="Food Service">Food Service</option>
                                                                                                 
-                                            <option value="general">Other</option>
+                                            <option value="Other">Other</option>
 											
                                         </select>
 										

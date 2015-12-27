@@ -49,6 +49,7 @@ require("navbar.php");
                                     <input class="file-path " type="text">
                                 </div>
                             </div>
+                            
                             <div class="row">
                                 <div class="input-field col s6">
                                     <button type="submit" name="addAlbum" class="waves-effect waves-light btn-large">Create</button>

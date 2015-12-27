@@ -37,7 +37,7 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <span>Select Date</span>
-                            <input type="date" name="dt" >                                
+                            <input type="text" id="datepicker" name="dt">                                
                             <button type="submit" name="subm" class="waves-effect waves-light btn">Submit</button>
                         </div>
                     </div>
@@ -60,15 +60,16 @@
             }
             if(!empty($resultset))
                     { ?>
-                    <form method='post' action='DBHandler.php' onsubmit="if(document.getElementById('human').checked) { return true; } else { alert('Hello Robot..!!'); return false; }">
+                        <a href="index.php">Selected Date: <?php  echo $dt;?></a>
+                        <form method='post' action='DBHandler.php' onsubmit="if(document.getElementById('human').checked) { return true; } else { alert('Hello Robot..!!'); return false; }">
                         <div class="row">
                             <div class="row">
                                 <div class="input-field col s6">
                                     <select name='gender' id='gender'>								
-                                            <option value='male'>Mr.</option>
-                                            <option value='female'>Mrs.</option>
-                                            <option value='female'>Miss</option>
-                                            <option value='female'>Ms.</option>									
+                                            <option value='Mr.'>Mr.</option>
+                                            <option value='Mrs.'>Mrs.</option>
+                                            <option value='Miss.'>Miss</option>
+                                            <option value='Ms.'>Ms.</option>									
                                     </select>
                                 </div>
                                 
@@ -88,7 +89,7 @@
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <i class="material-icons prefix">mode_edit</i>
-                                        <textarea id="icon_prefix2" name="address" class="materialize-textarea"></textarea>
+                                        <textarea id="icon_prefix2" name="address" class="materialize-textarea" required></textarea>
                                         <label for="icon_prefix2">Address</label>
                                     </div>
                                 </div>
@@ -106,18 +107,11 @@
                                     </div>
                                     
                                     <div class="input-field col s6">
-                                        <input type='text' id='nop' name='nop' placeholder="Enter Number of Persons">
+                                        <input type='text' id='nop' name='nop' placeholder="Enter Number of Persons" required>
                                     </div>
                                 </div>
                                       
                                 <div class="row">
-                                    <div class="input-field col s6">
-                                        <span>Select Food </span>
-                                        <input type='checkbox' id='ht' value='Hi-Tea' name="food[]" >
-                                        <label for='ht'>HiTea</label>
-                                        <input type='checkbox' id='vm' value='Veg-Meal' name="food[]">
-                                        <label for='vm'>Veg Meal</label>
-                                    </div>
                                     <div class="input-field col s6">
                                        <span>Select Session </span>
                                         <?php foreach($resultset as $key=>$value){ ?>
@@ -164,6 +158,16 @@
         <script type="text/javascript" src="assets/material/js/ajax.js"></script>
         <script type="text/javascript" src="assets/material/js/style.js"></script>
         <script type="text/javascript" src="assets/material/js/custom.js"></script>
+        <script>
+  $(function() {
+    $( "#datepicker" ).datepicker({
+    dateFormat: 'yy-mm-dd',
+    minDate:'+7',
+    maxDate: '+90'
+        
+        });
+  });
+  </script>
      		
     </body>
 </html>

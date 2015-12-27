@@ -1,9 +1,11 @@
 <?php
 require("header.php");
+
 ?>
+
 <html>
 	<head>
-		<title>PM - Booking Status</title>
+		<title>PM - Booking Details</title>
 		
                 <link rel="stylesheet" href="assets/css/main.css" />
 		
@@ -26,10 +28,16 @@ require("header.php");
             </section>
             
             <?php
-            if(isset($_POST['ser']))
+            if(isset($_POST['ser']) || isset($_GET['booking_id']))
             {
-        
-            $id = $_POST["id"];
+                if(isset($_GET['booking_id']))
+                {
+                    $id = $_GET['booking_id'];
+                }
+                else {
+                    $id=$_POST["id"];
+                }
+       
             $conn = mysql_connect("localhost", "root", "");
             mysql_select_db("PM_Banq",$conn);
             $qry="SELECT * FROM booking_master WHERE booking_id= '$id'";
@@ -43,7 +51,7 @@ require("header.php");
             <section id="three" class="wrapper style2">
                 <div class="inner">
                     <header class="major narrow	">
-                        <h2><?php echo $row["title"].$row["name"];  ?></h2>
+                        <h2>Booking ID: <?php echo $row["booking_id"]; ?></br><?php echo $row["title"].$row["name"];  ?></h2>
                     </header>
                     		
                     <div class="table-wrapper">
@@ -62,9 +70,10 @@ require("header.php");
                                 <td><?php echo $row["date"];?></td>
                                 <td><?php echo $row["sessions"];?></td>
                                 <td><?php echo $row["nop"];?></td>
-                                <td><?php echo $row["status"];?></td>
+                                <td ><a href="print.php?var=<?php echo $id; ?>"><?php echo $row["status"];?></a></td>
                             </tbody>
                         </table>
+                        <h2>Get your food order quotation:    </h2><a href="foodOrder.php?var=<?php echo $id;?>" class="button small special">Now</a>
                     </div>
                 </div>
             </section>
