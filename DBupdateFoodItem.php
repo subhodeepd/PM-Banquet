@@ -1,8 +1,8 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "PM_Banq";
+$servername = "mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/";
+$username = "adminaQYhir2";
+$password = "IBEgx-AkNgY3";
+$dbname = "pm";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);

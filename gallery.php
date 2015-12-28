@@ -18,8 +18,8 @@ require("header.php");
                     </header>
                 
                         <?php
-                                    $conn = mysql_connect("localhost", "root", "");
-                                    mysql_select_db("PM_Banq",$conn);
+                                    $conn = mysql_connect("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "adminaQYhir2", "IBEgx-AkNgY3");
+mysql_select_db("pm",$conn);
                                     $qry="SELECT * FROM album_master ORDER BY date DESC LIMIT 10";
                                     $result = mysql_query($qry,$conn);
                                     while($row=  mysql_fetch_assoc($result)) {

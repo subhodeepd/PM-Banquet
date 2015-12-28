@@ -11,8 +11,8 @@ $nop = $_POST['nop'];
 $food = json_encode($_POST['food']);
 $session = json_encode($_POST['session']);
 
-$conn = mysql_connect("localhost", "root", "");
-mysql_select_db("PM_Banq",$conn);
+$conn = mysql_connect("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "adminaQYhir2", "IBEgx-AkNgY3");
+mysql_select_db("pm",$conn);
 $qry ="INSERT INTO `booking_master` (`booking_id`,`title`, `name`,`address`, `phone`,`email`,`nop`,`date`,`sessions`,`food_type`,`event_type`) VALUES (NULL, '$title', '$name', '$address', '$phone','$email','$nop','$date','$session','$food','$event')";
 
 
@@ -28,7 +28,7 @@ $result = mysql_query($qry,$conn);
     }
     foreach($_POST['session'] as $check) 
     {             
-        $query ="UPDATE `pm_banq`.`booking_status` SET `booking_id`=$id,`last_modified` = CURRENT_TIMESTAMP WHERE `booking_status`.`date` = '$date'  AND session LIKE '$check'";
+        $query ="UPDATE booking_status SET `booking_id`=$id,`last_modified` = CURRENT_TIMESTAMP WHERE `booking_status`.`date` = '$date'  AND session LIKE '$check'";
         $result = mysql_query($query,$conn);
         if($result)
         {

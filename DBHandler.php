@@ -36,7 +36,7 @@ if(isset($_POST['book'])){
     }
     foreach($_POST['session'] as $check) 
     {             
-        $query ="UPDATE `pm_banq`.`booking_status` SET `booking_id`=$id,`last_modified` = CURRENT_TIMESTAMP WHERE `booking_status`.`date` = '$date'  AND session LIKE '$check'";
+        $query ="UPDATE `pm`.`booking_status` SET `booking_id`=$id,`last_modified` = CURRENT_TIMESTAMP WHERE `booking_status`.`date` = '$date'  AND session LIKE '$check'";
         $result = mysql_query($query,$conn);
         if($result)
         {

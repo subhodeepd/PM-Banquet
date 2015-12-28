@@ -49,8 +49,8 @@
             {
         
             $dt = $_POST["dt"];
-            $conn = mysql_connect("localhost", "root", "");
-            mysql_select_db("PM_Banq",$conn);
+            $conn = mysql_connect("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "adminaQYhir2", "IBEgx-AkNgY3");
+mysql_select_db("pm",$conn);
             $qry="SELECT * FROM booking_status WHERE date  = '$dt'  AND status LIKE 'U' AND last_modified <= now() - INTERVAL 1 DAY" ;
         
             $result = mysql_query($qry,$conn);

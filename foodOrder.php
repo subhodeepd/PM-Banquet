@@ -49,8 +49,8 @@ $id = $_GET['var'];
                             </header>
                             <div class="row">
                                 <?php
-                                $conn = mysql_connect("localhost", "root", "");
-                                mysql_select_db("PM_Banq", $conn);
+                                $conn = mysql_connect("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "adminaQYhir2", "IBEgx-AkNgY3");
+mysql_select_db("pm",$conn);
                                 $qry = "SELECT * FROM food_master  WHERE category='Hi-Tea'";
                                 $result = mysql_query($qry, $conn);
                                 while ($row = mysql_fetch_assoc($result)) {
@@ -106,8 +106,8 @@ $id = $_GET['var'];
 
                                 <?php
                                 $conn = mysql_connect("localhost", "root", "");
-                                mysql_select_db("PM_Banq", $conn);
-                                $query = "SELECT * FROM food_master WHERE category LIKE 'Veg-Meal (Appetizers)'";
+                                $conn = mysql_connect("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "adminaQYhir2", "IBEgx-AkNgY3");
+mysql_select_db("pm",$conn);
                                 $rslt = mysql_query($query, $conn);
                                 while ($rw = mysql_fetch_assoc($rslt)) {
                                     $resultst[] = $rw;
@@ -136,8 +136,8 @@ $id = $_GET['var'];
                             <div class="row">
 
                                 <?php
-                                $conn = mysql_connect("localhost", "root", "");
-                                mysql_select_db("PM_Banq", $conn);
+                                $conn = mysql_connect("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "adminaQYhir2", "IBEgx-AkNgY3");
+mysql_select_db("pm",$conn);
                                 $query = "SELECT * FROM food_master WHERE category LIKE 'Veg-Meal (First Course)'";
                                 $rslt = mysql_query($query, $conn);
                                 while ($rw = mysql_fetch_assoc($rslt)) {
@@ -166,8 +166,8 @@ $id = $_GET['var'];
                             <div class="row">
 
                                 <?php
-                                $conn = mysql_connect("localhost", "root", "");
-                                mysql_select_db("PM_Banq", $conn);
+                                $conn = mysql_connect("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "adminaQYhir2", "IBEgx-AkNgY3");
+mysql_select_db("pm",$conn);
                                 $query = "SELECT * FROM food_master WHERE category LIKE 'Veg-Meal (Main Course)'";
                                 $rslt = mysql_query($query, $conn);
                                 while ($rw = mysql_fetch_assoc($rslt)) {
@@ -199,8 +199,8 @@ $id = $_GET['var'];
                             <div class="row">
 
                                 <?php
-                                $conn = mysql_connect("localhost", "root", "");
-                                mysql_select_db("PM_Banq", $conn);
+                                $conn = mysql_connect("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "adminaQYhir2", "IBEgx-AkNgY3");
+mysql_select_db("pm",$conn);
                                 $query = "SELECT * FROM food_master WHERE category LIKE 'Veg-Meal (Dessert)'";
                                 $rslt = mysql_query($query, $conn);
                                 while ($rw = mysql_fetch_assoc($rslt)) {

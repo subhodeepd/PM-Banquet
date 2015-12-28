@@ -38,8 +38,8 @@ require("header.php");
                     $id=$_POST["id"];
                 }
        
-            $conn = mysql_connect("localhost", "root", "");
-            mysql_select_db("PM_Banq",$conn);
+            $conn = mysql_connect("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "adminaQYhir2", "IBEgx-AkNgY3");
+mysql_select_db("pm",$conn);
             $qry="SELECT * FROM booking_master WHERE booking_id= '$id'";
         
             $result = mysql_query($qry,$conn);
