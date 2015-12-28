@@ -1,7 +1,7 @@
 3<?php
 session_start();
-$conn = mysql_connect("localhost", "root", "");
-mysql_select_db("PM_Banq",$conn);
+$conn = mysql_connect("mysql://$OPENSHIFT_MYSQL_DB_HOST:$OPENSHIFT_MYSQL_DB_PORT/", "adminaQYhir2", "IBEgx-AkNgY3");
+mysql_select_db("pm",$conn);
 
 
 if(isset($_POST['book'])){
